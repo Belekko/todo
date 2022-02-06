@@ -1,0 +1,75 @@
+.delete-btn {
+    font-size: 20px;
+    padding: 6px 12px;
+    background-color: red;
+    color: aliceblue;
+    border-radius: 6px;
+    border: none;
+}
+
+.cancel-btn {
+    border: none;
+    font-size: 20px;
+    background-color: white;
+    padding-right: 12px;
+    color: rgb(12, 101, 112);
+}
+
+.checked-btn {
+    font-size: 20px;
+    padding: 6px 12px;
+    background-color: rgb(12, 101, 112);
+    color: aliceblue;
+    border-radius: 6px;
+    border: none;
+}
+
+.ok-btn {
+    font-size: 20px;
+    padding: 6px 12px;
+    background-color: rgb(12, 101, 112);
+    color: aliceblue;
+    border-radius: 6px;
+    border: none;
+}
+
+ul {
+    list-style: none;
+    padding: 18px;
+}
+
+.li {
+    width: 400px;
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid rgb(17, 58, 63);
+    margin-bottom: 5px;
+    padding-bottom: 4px;
+}
+
+.p {
+    width: 400px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    color: red;
+}
+
+.inList-delete {
+    font-size: 14px;
+    padding: 2px 6px;
+    background-color: rgb(218, 54, 54);
+    color: aliceblue;
+    border-radius: 6px;
+    border: none;
+}
+
+.done {
+    text-decoration: line-through;
+    background-color: aqua;
+}
+
+.edit {
+    width: 20px;
+}

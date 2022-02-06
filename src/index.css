@@ -1,0 +1,25 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+
+body{
+  background: linear-gradient(0deg, rgba(189,195,199,1) 0%, rgba(44,62,80,1) 0%);
+  height: 100%;
+}
+
+#root{
+  width: 800px;
+  margin: 0 auto;
+  background: whitesmoke;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  margin-top: 25px;
+  
+}

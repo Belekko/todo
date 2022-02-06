@@ -1,0 +1,46 @@
+.btn {
+    background-color: rgb(6, 219, 191);
+    height: 35px;
+    border: none;
+    border-radius: 6px;
+    width: 40px;
+    margin-left: 4px;
+    font-size: 18px;
+    color: rgba(0, 0, 0,0.59);
+}
+
+.btn:active{
+  background-color: greenyellow;
+}
+
+.input {
+    border-radius: 7px;
+    width: 380px;
+    background-color: white;
+    height: 35px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color:rgba(0, 0, 0,0.75) ;
+}
+
+.add-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0,0.25);
+    height: 50px;
+    width: 460px;
+    border-radius: 10px;
+    
+    
+}
+
+.ok-btn {
+    font-size: 20px;
+    padding: 6px 12px;
+    background-color: rgb(12, 101, 112);
+    color: aliceblue;
+    border-radius: 6px;
+    border: none;
+}
