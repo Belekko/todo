@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import Modal from "../Modal/Modal";
 import Button from "../UI/button/Button";
 import styled from "styled-components";
+import { EDIT } from "../../constants";
+import { useEvent } from "../../eventContext";
 
 const Input = styled.input`
     border-radius: 7px;
@@ -15,19 +17,20 @@ const Input = styled.input`
     margin-right: 100px;
 `;
 
-function EditModal({ showModal, onCancel, getId, dispatch, setShowModal }) {
+function EditModal() {
     const editRef = useRef("");
+    const {showModal, onCancel, getId, dispatch, setShowModal}=useEvent()
 
     const onEdit = () => {
         dispatch({
-            type: "edit",
+            type: EDIT,
             payload: { id: getId, editName: editRef.current.value },
         });
         setShowModal(null);
     };
     return (
         <>
-            {showModal && showModal.type === "edit" && (
+            {showModal && showModal.type === EDIT && (
                 <Modal title={showModal.title} message={showModal.message}>
                     <Input ref={editRef} type="text" />
                     <Button onClick={onCancel} className="cancel-btn">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import Button from "./UI/button/Button";
 import Card from "./UI/card/Card";
 import "./Todos.css";
@@ -6,55 +6,12 @@ import DeleteModal from "./EventsOfTaskList/Delete";
 import CheckedModal from "./EventsOfTaskList/Checked";
 import EditModal from "./EventsOfTaskList/Edit";
 
-function Todos({ todos, dispatch }) {
-    const [getId, setGetId] = useState("");
-    const [showModal, setShowModal] = useState(null);
+import { useData } from "../context";
+import { useEvent } from "../eventContext";
 
-    const onCheckedHandler = (id) => {
-        setGetId(id);
-        setShowModal({
-            title: "Do you have finish?",
-            message: "Are you sure?",
-            type: "checked",
-        });
-    };
-    const onDoneHandler = () => {
-        dispatch({
-            type: "checked",
-            payload: { id: getId },
-        });
-        setShowModal(null);
-    };
-
-    const onDeleteHandler = (id) => {
-        setShowModal({
-            title: "Do you wanna delete?",
-            message: "Are you sure?",
-            type: "delete",
-        });
-        setGetId(id);
-    };
-
-    const onDeleteSure = () => {
-        dispatch({
-            type: "delete",
-            payload: { id: getId },
-        });
-        setShowModal(null);
-    };
-
-    const onCancel = () => {
-        setShowModal(null);
-    };
-
-    const onEditHandler = (id) => {
-        setShowModal({
-            type: "edit",
-            title: "Changing...",
-            message: "Write new task...",
-        });
-        setGetId(id);
-    };
+function Todos() {
+    const { todos } = useData();
+    const { onCheckedHandler, onEditHandler, onDeleteHandler } = useEvent();
 
     let showTasks = <p className="p">No tasks...</p>;
     if (todos.length > 0) {
@@ -89,23 +46,9 @@ function Todos({ todos, dispatch }) {
 
     return (
         <Card>
-            <CheckedModal
-                showModal={showModal}
-                onCancel={onCancel}
-                onDoneTask={onDoneHandler}
-            />
-            <EditModal
-                showModal={showModal}
-                onCancel={onCancel}
-                getId={getId}
-                dispatch={dispatch}
-                setShowModal={setShowModal}
-            />
-            <DeleteModal
-                showModal={showModal}
-                onCancel={onCancel}
-                onDeleteSure={onDeleteSure}
-            />
+            <CheckedModal />
+            <EditModal />
+            <DeleteModal />
             <ul>{showTasks}</ul>
         </Card>
     );

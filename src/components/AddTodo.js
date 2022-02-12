@@ -1,26 +1,11 @@
-import React, { useRef, useState } from "react";
+// import React, { useRef, useState } from "react";
 import Button from "./UI/button/Button";
 import classes from "./AddTodo.module.css";
 import Modal from "./Modal/Modal";
+import { useEvent } from "../eventContext";
 
-function AddTodo({ dispatch }) {
-    const nameRef = useRef("");
-    const [modal, setModal] = useState(false);
-    const handleSubmit = () => {
-        if (nameRef.current.value.trim().length === 0) {
-            setModal({
-                title: "Warning",
-                message: "Type something...",
-                type: true,
-            });
-        } else {
-            dispatch({ type: "add", payload: { name: nameRef.current.value } });
-            nameRef.current.value = "";
-        }
-    };
-    const onOkHandler = () => {
-        setModal(false);
-    };
+function AddTodo() {
+    const { onOkHandler, nameRef, onEnter, handleSubmit, modal } = useEvent();
     return (
         <div className={classes["add-block"]}>
             {modal && (
@@ -30,7 +15,12 @@ function AddTodo({ dispatch }) {
                     </Button>
                 </Modal>
             )}
-            <input className={classes.input} type="text" ref={nameRef} />
+            <input
+                className={classes.input}
+                type="text"
+                ref={nameRef}
+                onKeyUp={onEnter}
+            />
             <Button className={classes.btn} onClick={handleSubmit}>
                 ADD
             </Button>
